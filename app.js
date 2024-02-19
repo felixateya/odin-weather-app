@@ -15,7 +15,7 @@ window.onload = displayWeather(defaultCity)
 function displayWeather (city){
      city = document.getElementById("cityInput").value
 
-document.querySelector(".weather").style.background = `url(https://source.unsplash.com/1920x1280/?${!city ? defaultCity : city})`
+document.querySelector(".weather").style.background = `url(httpss://source.unsplash.com/1920x1280/?${!city ? defaultCity : city})`
     dateToday = new Date();
 
     date = dateToday.getDate();
@@ -23,10 +23,10 @@ document.querySelector(".weather").style.background = `url(https://source.unspla
     let year = dateToday.getFullYear()
     month = dateToday.getMonth();
     
-console.log(`http://api.weatherapi.com/v1/history.json?key=bcc436f472c54a5397f120300231307&q=${!city ? defaultCity : city}&dt=${year}-0${month + 1}-${date-1}`)
+console.log(`https://api.weatherapi.com/v1/history.json?key=bcc436f472c54a5397f120300231307&q=${!city ? defaultCity : city}&dt=${year}-0${month + 1}-${date-1}`)
     axios
     .get(
-      `http://api.weatherapi.com/v1/history.json?key=bcc436f472c54a5397f120300231307&q=${!city ? defaultCity : city}&dt=${year}-0${month + 1}-${date-1}`
+      `https://api.weatherapi.com/v1/history.json?key=bcc436f472c54a5397f120300231307&q=${!city ? defaultCity : city}&dt=${year}-0${month + 1}-${date-1}`
   )
   .then((response) => {
     console.log(response.data);
@@ -37,7 +37,7 @@ console.log(`http://api.weatherapi.com/v1/history.json?key=bcc436f472c54a5397f12
 
 axios
   .get(
-    `http://api.weatherapi.com/v1/history.json?key=bcc436f472c54a5397f120300231307&q=${!city ? defaultCity : city}&dt=${year}-0${month + 1}-${date-2}`
+    `https://api.weatherapi.com/v1/history.json?key=bcc436f472c54a5397f120300231307&q=${!city ? defaultCity : city}&dt=${year}-0${month + 1}-${date-2}`
   )
   .then((response) => {
     console.log(response.data);
@@ -47,7 +47,7 @@ axios
   });
 axios
   .get(
-    `http://api.weatherapi.com/v1/current.json?key=bcc436f472c54a5397f120300231307&q=${!city ? defaultCity : city}&aqi=no`
+    `https://api.weatherapi.com/v1/current.json?key=bcc436f472c54a5397f120300231307&q=${!city ? defaultCity : city}&aqi=no`
   )
   .then((response) => {
     console.log(response.data);
