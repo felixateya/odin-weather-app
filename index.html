@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather API</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="weather.png" type="image/x-icon">
+  </head>
+  <body>
+    <div class="weather">
+      <div class="opc">
+          <input type="text" id="cityInput"  placeholder="Enter the city">
+          <button id="clicker" onclick="displayWeather()">Show the Weather</button>
+          <h1 id="cityName" style="color:#fff"></h1>
+            <div id="monday" class="day">
+              <h2 id="juzi"></h2>
+              <div class="temp">
+                <img src="" alt="" id="icon3" />
+                <h1 id="mondayw"></h1>
+              </div>
+            </div>
+          <div id="today" class="day">
+            <h2 id="leo"></h2>
+            <p id="cloud"></p>
+            <div class="temp">
+              <img src="" alt="" id="icon1" />
+              <h1 id="todayw"></h1>
+            </div>
+          </div>
+          <div id="tuesday" class="day">
+            <h2 id="yesterday"></h2>
+            <div class="temp">
+              <img src="" alt="" id="icon2" />
+              <h1 id="tuesdayw"></h1>
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.4.0/dist/axios.min.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>
