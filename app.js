@@ -15,7 +15,7 @@ window.onload = displayWeather(defaultCity)
 function displayWeather (city){
      city = document.getElementById("cityInput").value
 
-document.querySelector(".weather").style.background = `url(httpss://source.unsplash.com/1920x1280/?${!city ? defaultCity : city})`
+document.querySelector(".weather").style.background = `url(https://source.unsplash.com/1920x1280/?${!city ? defaultCity : city})`
     dateToday = new Date();
 
     date = dateToday.getDate();
