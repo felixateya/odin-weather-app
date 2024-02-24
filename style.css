@@ -81,7 +81,12 @@
   position: absolute;
   top: 10px;
   left: 10px;
+  width: 40%;
 
+}
+
+.weather input:focus{
+  outline: auto;
 }
 
 ::placeholder{
