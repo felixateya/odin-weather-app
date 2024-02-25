@@ -121,7 +121,7 @@ axios
     document.getElementById("todayw").innerHTML = `${
       response.data.current.temp_c
     }${"<sup>0</sup>"}C`;
-    document.getElementById("leo").innerText = formatDay(response.data.location.localtime.split(" ")[0])
+    document.getElementById("leo").innerText = `Today: ${formatDay(response.data.location.localtime.split(" ")[0])}`
       document.getElementById("cityName").innerText = `${!city ? defaultCity : city}: ${response.data.location.region}, ${response.data.location.country}`
 
       document.getElementById("icon1").src = response.data.current.condition.icon;
