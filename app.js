@@ -20,17 +20,18 @@ function displayWeather (city){
     dateToday = new Date();
 
     date = dateToday.getDate();
-    console.log(date);
+    // console.log(date);
     let year = dateToday.getFullYear()
     month = dateToday.getMonth();
     
 // console.log(`https://api.weatherapi.com/v1/history.json?key=bcc436f472c54a5397f120300231307&q=${!city ? defaultCity : city}&dt=${year}-0${month + 1}-${date-1}`)
     axios
     .get(
-      `https://api.weatherapi.com/v1/history.json?key=bcc436f472c54a5397f120300231307&q=${!city ? defaultCity : city}&dt=${year}-0${month + 1}-${date-4}`
+      `https://api.weatherapi.com/v1/history.json?key=bcc436f472c54a5397f120300231307&q=${!city ? defaultCity : city}&dt=${year}-0${month + 1}-${date-2}`
   )
   .then((response) => {
-    console.log(response.data.forecast.forecastday[0].day.condition.icon);
+    // console.log(response.data);
+    document.getElementById("yesterday").innerText = formatDay(response.data.forecast.forecastday[0].date)
     document.getElementById("cloudTues").innerText = response.data.forecast.forecastday[0].day.condition.text
 
     document.getElementById("icon2").src = response.data.forecast.forecastday[0].day.condition.icon
@@ -41,10 +42,11 @@ function displayWeather (city){
 
 axios
   .get(
-    `https://api.weatherapi.com/v1/history.json?key=bcc436f472c54a5397f120300231307&q=${!city ? defaultCity : city}&dt=${year}-0${month + 1}-${date-4}`
+    `https://api.weatherapi.com/v1/history.json?key=bcc436f472c54a5397f120300231307&q=${!city ? defaultCity : city}&dt=${year}-0${month + 1}-${date-1}`
   )
   .then((response) => {
-    console.log(response.data);
+    // console.log(response.data);
+    document.getElementById("juzi").innerText = formatDay(response.data.forecast.forecastday[0].date)
     document.getElementById("icon3").src = response.data.forecast.forecastday[0].day.condition.icon
 document.getElementById("cloudJuz").innerText = response.data.forecast.forecastday[0].day.condition.text
     document.getElementById("mondayw").innerHTML = `${
@@ -56,7 +58,8 @@ axios
     `https://api.weatherapi.com/v1/history.json?key=bcc436f472c54a5397f120300231307&q=${!city ? defaultCity : city}&dt=${year}-0${month + 1}-${date-3}`
   )
   .then((response) => {
-    console.log(response.data);
+    // console.log(response.data);
+    document.getElementById("wed").innerText = formatDay(response.data.forecast.forecastday[0].date)
     document.getElementById("icon4").src = response.data.forecast.forecastday[0].day.condition.icon
     document.getElementById("cloudWed").innerText = response.data.forecast.forecastday[0].day.condition.text
 
@@ -66,10 +69,12 @@ axios
   });
 axios
   .get(
-    `https://api.weatherapi.com/v1/history.json?key=bcc436f472c54a5397f120300231307&q=${!city ? defaultCity : city}&dt=${year}-0${month + 1}-${date-2}`
+    `https://api.weatherapi.com/v1/history.json?key=bcc436f472c54a5397f120300231307&q=${!city ? defaultCity : city}&dt=${year}-0${month + 1}-${date-4}`
   )
   .then((response) => {
-    console.log(response.data);
+    // console.log(response.data);
+    document.getElementById("thr").innerText = formatDay(response.data.forecast.forecastday[0].date)
+
     document.getElementById("icon5").src = response.data.forecast.forecastday[0].day.condition.icon
     document.getElementById("cloudThur").innerText = response.data.forecast.forecastday[0].day.condition.text
 
@@ -79,21 +84,47 @@ axios
   });
 axios
   .get(
+    `https://api.weatherapi.com/v1/history.json?key=bcc436f472c54a5397f120300231307&q=${!city ? defaultCity : city}&dt=${year}-0${month + 1}-${date-5}`
+  )
+  .then((response) => {
+    // console.log(response.data);
+    document.getElementById("fri").innerText = formatDay(response.data.forecast.forecastday[0].date)
+
+    document.getElementById("icon6").src = response.data.forecast.forecastday[0].day.condition.icon
+    document.getElementById("cloudFri").innerText = response.data.forecast.forecastday[0].day.condition.text
+
+    document.getElementById("fridayw").innerHTML = `${
+      response.data.forecast.forecastday[0].day.avgtemp_c
+    }${"<sup>0</sup>"}C`;
+  });
+axios
+  .get(
+    `https://api.weatherapi.com/v1/history.json?key=bcc436f472c54a5397f120300231307&q=${!city ? defaultCity : city}&dt=${year}-0${month + 1}-${date-6}`
+  )
+  .then((response) => {
+    // console.log(response.data);
+    document.getElementById("sat").innerText = formatDay(response.data.forecast.forecastday[0].date)
+
+    document.getElementById("icon7").src = response.data.forecast.forecastday[0].day.condition.icon
+    document.getElementById("cloudSat").innerText = response.data.forecast.forecastday[0].day.condition.text
+
+    document.getElementById("saturdayw").innerHTML = `${
+      response.data.forecast.forecastday[0].day.avgtemp_c
+    }${"<sup>0</sup>"}C`;
+  });
+axios
+  .get(
     `https://api.weatherapi.com/v1/current.json?key=bcc436f472c54a5397f120300231307&q=${!city ? defaultCity : city}&aqi=no`
   )
   .then((response) => {
-    console.log(response.data);
+    // console.log(response.data);
     document.getElementById("todayw").innerHTML = `${
       response.data.current.temp_c
     }${"<sup>0</sup>"}C`;
-    
+    document.getElementById("leo").innerText = formatDay(response.data.location.localtime.split(" ")[0])
       document.getElementById("cityName").innerText = `${!city ? defaultCity : city}: ${response.data.location.region}, ${response.data.location.country}`
 
       document.getElementById("icon1").src = response.data.current.condition.icon;
-    // document.getElementById("icon2").src = response.data.current.condition.icon;
-    // document.getElementById("icon3").src = response.data.current.condition.icon;
-    // document.getElementById("icon4").src = response.data.current.condition.icon;
-    // document.getElementById("icon5").src = response.data.current.condition.icon;
 
     document.getElementById("cloud").innerText =
       response.data.current.condition.text;
@@ -101,35 +132,11 @@ axios
   .catch((error) => {
     console.log(error);
   });
-
-dateToday = new Date();
-
-dayToday = dateToday.getDay();
-
-const days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-
-let leo = days[dayToday]
-
-let juzi = days[dayToday - 4];
-
-let yesterday = days[dayToday - 3];
-
-let dayThree = days[dayToday-2]
-let dayFour  = days[dayToday -1]
-
-document.getElementById("yesterday").innerHTML = yesterday;
-document.getElementById("juzi").innerHTML = juzi;
-document.getElementById("wed").innerHTML = dayThree;
-document.getElementById("thr").innerHTML = dayFour;
-document.getElementById("leo").innerHTML =` Today: ${leo}`;
+}
 
 
+function formatDay(dateStr) {
+  return new Intl.DateTimeFormat("en", {
+    weekday: "short",
+  }).format(new Date(dateStr));
 }
