@@ -50,6 +50,10 @@
   border-radius: 12px;
 }
 
+.day p{
+  transition: 0.3s ease-in-out;
+}
+
 .temp {
   display: flex;
   justify-content: center;
@@ -57,6 +61,7 @@
   gap: 10px;
   align-self: end;
   font-size: 12px;
+  transition: 0.3s ease-in-out;
 }
 #today {
   position: absolute;
@@ -72,7 +77,7 @@
 #tuesday,#wednesday, #thursday, #friday, #saturday {
   animation: gray-scale 8s infinite;
   transition: 3s ease-in-out;
-  background-color: #222222c3;
+  background-color: #000000ba;
 }
 
 
